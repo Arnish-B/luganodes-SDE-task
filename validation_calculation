@@ -1,0 +1,16 @@
+POLKADOT:
+
+POST request at https://polkadot.api.subscan.io/api/scan/staking/validators
+	Filter by using stash_account_display -> display -> luganodes
+	For that object -> bonded_total
+	Divide the number by -> 1,340,519,708
+	Multiply by 100 to get percentage of staked tokens
+	
+	
+Kusama:
+
+POST request at https://kusama.api.subscan.io/api/scan/staking/validators
+	Filter by using stash_account_display -> display -> luganodes
+	For that object -> bonded_total
+	Divide the number by -> 9,651,217
+	Multiply by 100 to get percentage of staked tokens
