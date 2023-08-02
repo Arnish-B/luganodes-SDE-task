@@ -126,31 +126,25 @@ const MainBody = () => {
 
   const data = [
     {
-      totalSupply: "1,340,519,708",
       imgURL:
         "https://imgnew.outlookindia.com/uploadimage/library/16_9/16_9_5/Polkadot__1666094678.jpg",
       cardTitle: "Polkadot",
       stakeRate: polkadotStakeRate,
       totalBounded: polkadotStakedValue,
-      validator: "Luganodes",
     },
     {
-      totalSupply: "45,000,000,000",
       imgURL:
         "https://public.bnbstatic.com/static/academy/uploads-original/6628e286df1f461a86d25314c7204525.png",
       cardTitle: "Cardano",
       stakeRate: cardanoStakeRate,
       totalBounded: cardanoStakedValue,
-      validator: "Luganodes",
     },
     {
-      totalSupply: "9,651,217",
       imgURL:
         "https://polkadot.network/static/bed1c19deef483db7e55a76b92ece07b/ksm.png",
       cardTitle: "Kusama Chains",
       stakeRate: kusamaStakeRate,
       totalBounded: kusamaStakedValue,
-      validator: "Luganodes",
     },
   ];
 
@@ -158,34 +152,17 @@ const MainBody = () => {
     <div
       className={`flex justify-center items-center h-screen ${backgroundColor}`}
     >
-      <Carousel
-        renderArrowPrev={(onClickHandler, hasPrev, label) =>
-          hasPrev && <CustomArrowPrev onClick={onClickHandler} label={label} />
-        }
-        renderArrowNext={(onClickHandler, hasNext, label) =>
-          hasNext && <CustomArrowNext onClick={onClickHandler} label={label} />
-        }
-        showStatus={false}
-        showThumbs={false}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={3000}
-        transitionTime={850}
-        centerMode={true}
-        centerSlidePercentage={60}
-        renderIndicator={null}
-        className="w-full max-w-2xl"
-      >
-        {data.map((card, index) => (
-          <div key={index} className="p-4">
-            <Card
-              handleTickClick={handleTickClick}
-              clickedCards={clickedCards}
-              {...card}
-            />
-          </div>
-        ))}
-      </Carousel>
+      {data.map((card, index) => (
+        <div key={index} className="p-4">
+          <Card
+            imgURL={card.imgURL}
+            title={card.cardTitle}
+            price={card.price}
+            stakeRate={card.stakeRate}
+            total_bonded={card.totalBounded}
+          />
+        </div>
+      ))}
     </div>
   );
 };
