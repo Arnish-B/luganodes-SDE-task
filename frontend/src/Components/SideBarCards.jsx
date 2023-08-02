@@ -19,8 +19,7 @@ const SideBarCards = () => {
           offset: "0",
         },
         headers: {
-          "X-RapidAPI-Key":
-            "898d8f6d6cmshdccd4bc373862a7p1fa677jsn189e58c2a5aa",
+          "X-RapidAPI-Key": process.env.coinranking_API_key,
           "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
         },
       };
