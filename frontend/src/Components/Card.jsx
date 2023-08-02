@@ -1,12 +1,12 @@
 import React from "react";
 
-const Card = ({ imgUrl, title, price, stakeRate, total_bonded }) => (
-  <div className="select-none max-w-md mx-auto m-20 border border-white bg-gradient-to-b from-color-b1 to-color-b4 shadow-lg rounded-lg overflow-hidden transition-all duration-500">
+const Card = ({ imgURL, title, price, stakeRate, total_bonded }) => (
+  <div className="select-none max-w-md mx-auto m-2 border border-white bg-gradient-to-b from-color-b1 to-color-b4 shadow-lg rounded-lg transition-all duration-500">
     <div className="flex flex-col w-9/10 p-4">
       <img
         className="rounded-md max-w-full h-64 object-cover"
-        src={imgUrl}
-        alt="Crypto"
+        src={imgURL}
+        alt={imgURL}
       />
       <h2>{title}</h2>
       <div className="flex justify-between items-center">

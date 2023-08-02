@@ -3,26 +3,10 @@ import { Carousel, Arrow } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Card from "./Card";
 import axios from "axios";
+import SideBar from "./SideBar";
 
 
 const MainBody = () => {
-  const CustomArrowPrev = (onClickHandler) => (
-    <div
-      className="absolute z-10 top-0 bottom-0 left-0 m-auto bg-transparent text-white text-6xl cursor-pointer "
-      onClick={onClickHandler.onClick}
-    >
-      ‹
-    </div>
-  );
-
-  const CustomArrowNext = (onClickHandler) => (
-    <div
-      className="absolute z-10 top-0 bottom-0 right-0 m-auto bg-transparent text-white text-6xl cursor-pointer "
-      onClick={onClickHandler.onClick}
-    >
-      ›
-    </div>
-  );
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const backgroundColors = ["bg-gray-800", "bg-gray-700", "bg-gray-600"];
   const [cardanoStakedValue, setCardanoStakedValue] = useState(0);
@@ -148,22 +132,32 @@ const MainBody = () => {
     },
   ];
 
+  console.log(data);
+
   return (
-    <div
-      className={`flex justify-center items-center h-screen ${backgroundColor}`}
-    >
-      {data.map((card, index) => (
-        <div key={index} className="p-4">
-          <Card
-            imgURL={card.imgURL}
-            title={card.cardTitle}
-            price={card.price}
-            stakeRate={card.stakeRate}
-            total_bonded={card.totalBounded}
-          />
-        </div>
-      ))}
-    </div>
+    <>
+      <SideBar />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        className={`flex justify-center items-center  bg-gradient-to-r from-color-b1 to-color-b3 overflow-y-auto `}
+      >
+        {data.map((card, index) => (
+          <div key={index} className="p-4">
+            <Card
+              imgURL={card.imgURL}
+              title={card.cardTitle}
+              price={card.price}
+              stakeRate={card.stakeRate}
+              total_bonded={card.totalBounded}
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
